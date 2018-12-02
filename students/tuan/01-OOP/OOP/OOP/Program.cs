@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OOP.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +13,8 @@ namespace OOP
         {
             //DongGoi();
             //KeThua();
-            DaHinh();
+            // DaHinh();
+            DemoAbstract();
             Console.ReadKey();
         }
 
@@ -54,8 +56,31 @@ namespace OOP
                 {
                     Console.WriteLine($"Salary of Worker is {salary} and CaculatorSalary is {item.CaculatorSalary()}");
                 }
-            }
-                
+            }    
+        }
+
+        static void DemoAbstract()
+        {
+            List<Account> accounts = new List<Account>();
+            accounts.Add(new Admin()
+            {
+                FirstName = "Tuan",
+                LastName = "Tran",
+                Role = "MasterAdmin",
+                UserName = "tuanAdmin",
+                Password ="passworAdmin"
+            });
+
+            accounts.Add(new User()
+            {
+                FirstName = "Huy",
+                LastName = "Nguyen",
+                Email = "huy@mail.com",
+                UserName = "huyUser",
+                Password = "passwordUser"
+            });
+
+            foreach (var item in accounts) item.ShowInfo();
         }
     }
 }
