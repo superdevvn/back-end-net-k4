@@ -51,7 +51,16 @@
     <Compile Include="Migrations\201812020756046_001.Designer.cs">
       <DependentUpon>201812020756046_001.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812020853059_002.cs" />
+    <Compile Include="Migrations\201812020853059_002.Designer.cs">
+      <DependentUpon>201812020853059_002.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812020901580_003.cs" />
+    <Compile Include="Migrations\201812020901580_003.Designer.cs">
+      <DependentUpon>201812020901580_003.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Subject.cs" />
     <Compile Include="Student.cs" />
     <Compile Include="SuperDevDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -63,6 +72,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201812020756046_001.resx">
       <DependentUpon>201812020756046_001.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812020853059_002.resx">
+      <DependentUpon>201812020853059_002.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812020901580_003.resx">
+      <DependentUpon>201812020901580_003.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
