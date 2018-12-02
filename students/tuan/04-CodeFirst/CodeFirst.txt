@@ -1,0 +1,7 @@
+1. Tao console Project
+2. Add class libary Project Model
+3. install package Entity Framework
+4. Ðinh nghia content ke thua DBContext cua EF
+5. Gán Connectstring cho Context
+6. Ðinh nghia các Model
+7. Chay câu lenh Miration
