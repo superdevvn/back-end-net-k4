@@ -49,8 +49,7 @@ namespace CodeFirst
             foreach(var student in students)
             {
                 Console.WriteLine($"Id: {student.Id}");
-                Console.WriteLine($"First Name: {student.FirstName}");
-                Console.WriteLine($"Last Name: {student.LastName}");
+                Console.WriteLine($"Full Name: {student.FirstName} {student.LastName}");
             }
         }
     }
