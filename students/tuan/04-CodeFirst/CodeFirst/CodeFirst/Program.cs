@@ -11,8 +11,9 @@ namespace CodeFirst
     {
         static void Main(string[] args)
         {
-            var student= GetList();
-            Print(student);
+            //var student= GetList();
+            //Print(student);
+            Print(GetList());
             Console.ReadKey();
         }
 
