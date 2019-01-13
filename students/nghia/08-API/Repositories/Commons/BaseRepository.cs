@@ -25,6 +25,28 @@ namespace Repositories
             }
         }
 
+        public virtual void Create(IEnumerable<TEntity> entities)
+        {
+            for (var i = 0; i < entities.Count(); i += 1000)
+            {
+                var subEntities = entities.Where((entity, index) =>
+                {
+                    return (index >= i && index < i + 1000);
+                });
+                using (var context = new SuperDevDbContext())
+                {
+                    context.Configuration.AutoDetectChangesEnabled = false;
+                    foreach (var entity in subEntities)
+                    {
+                        entity.Id = Guid.NewGuid();
+                        context.Set<TEntity>().Add(entity);
+                    }
+                    context.ChangeTracker.DetectChanges();
+                    context.SaveChanges();
+                }
+            }
+        }
+
         public virtual TEntity Update(TEntity entity)
         {
             using (var context = new SuperDevDbContext())
@@ -50,6 +72,24 @@ namespace Repositories
             using (var context = new SuperDevDbContext())
             {
                 return context.Set<TEntity>().Where(whereClause).FirstOrDefault();
+            }
+        }
+
+        public virtual List<TEntity> All(string whereClause = "1>0")
+        {
+            using (var context = new SuperDevDbContext())
+            {
+                return context.Set<TEntity>().Where(whereClause).ToList();
+            }
+        }
+
+        public virtual void Delete(Guid id)
+        {
+            using (var context = new SuperDevDbContext())
+            {
+                var entity = context.Set<TEntity>().Find(id);
+                context.Set<TEntity>().Remove(entity);
+                context.SaveChanges();
             }
         }
     }
