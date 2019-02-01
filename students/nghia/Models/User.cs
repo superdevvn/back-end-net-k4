@@ -13,8 +13,10 @@ namespace Models
     {
         public DbSet<User> Users { get; set; }
     }
-    public class User: BaseEntity
+    public class User : BaseEntity
     {
+        public Guid? RoleId { get; set; }
+
         [Required]
         [StringLength(50)]
         [Index("IX_Username", IsUnique = true)]
@@ -25,5 +27,8 @@ namespace Models
         public string Password { get; set; }
 
         public bool IsActivated { get; set; }
+
+        [ForeignKey("RoleId")]
+        public virtual Role Role { get; set; }
     }
 }
